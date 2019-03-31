@@ -7,76 +7,74 @@ public class LightFlicker : MonoBehaviour
     // Objects
     public Light spotLight;
     public Light pointLight;
-    float spotLight_intensity;
-    float pointLight_intensity;
 
     // Timers
-    public int timer_activation = 50;
-    int currTimer;
+    public int time_dark = 200;
+    public int time_light = 150;
+    public int currTimer;
     public int delayBetweenFlickers = 2;
     int dyn_delayBetweenFlickers;
     public int flicker_count = 5;
     public int flicker_delay = 10;
+    int flicker_count_priv;
+    int flicker_delay_priv;
 
     // States
-    bool flicker = false;
-    bool wait = false;
+    bool dark = false;
+    bool pause = false; // lock for dark <-> light
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialize timers
-        currTimer = timer_activation;
+        currTimer = time_light;
         dyn_delayBetweenFlickers = delayBetweenFlickers;   
-
-        // Settings
-        spotLight_intensity = spotLight.intensity;
-        pointLight_intensity = pointLight.intensity;
+        flicker_count_priv = flicker_count;
+        flicker_delay_priv = flicker_delay;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!flicker) {
-            if (currTimer != 0) {
-                currTimer--;
+    void Update() {
+        currTimer--;
+        if (currTimer <= 0) {
+            Flicker();
+            if (!pause) {
+                flicker_count_priv = flicker_count;
+                flicker_delay_priv = flicker_delay;
+                UpdateLight();
             }
-            else {
-                flicker = true;
-            }
-        }
-        updateLight();
-    }
-
-    void updateLight() {
-        if (flicker) {
-            flicker_delay--;
-            if (flicker_delay <= 0) {
-                flicker_count--;
-                wait = true;
-                flickerLight();
-                if (!wait) {
-                    flicker_delay = 10;
-                }
-            }
-        }
-        if (flicker_count == 0) {
-            flicker = false;
-            currTimer = timer_activation;
-            flicker_count = 5;
         }
     }
 
+    void UpdateLight() {
+        if (dark) {
+            spotLight.enabled = true;
+            pointLight.enabled = true;
+            dark = false;
+            currTimer = time_light;
+        }
+        else {
+            spotLight.enabled = false;
+            pointLight.enabled = false;
+            dark = true;
+            currTimer = time_dark;
+        }
+    }
 
-    void flickerLight() {
-    dyn_delayBetweenFlickers--;
-        spotLight.intensity = spotLight_intensity;
-        pointLight.intensity = pointLight_intensity;
-        if (dyn_delayBetweenFlickers <= 0) {
-            spotLight.intensity = 0;
-            pointLight.intensity = 0;
-            wait = false;
-            dyn_delayBetweenFlickers = delayBetweenFlickers;
+    void Flicker() {
+        pause = true;
+        spotLight.enabled = false;
+        pointLight.enabled = false;
+        flicker_delay_priv--;
+            
+        if (flicker_delay_priv <= 0) {
+            spotLight.enabled = true;
+            pointLight.enabled = true;
+            flicker_count_priv--;
+            flicker_delay_priv = flicker_delay;
+        }
+
+        if (flicker_count_priv == 0) {
+            pause = false;
         }
     }
 }
