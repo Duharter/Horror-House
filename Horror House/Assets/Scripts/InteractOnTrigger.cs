@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class InteractOnTrigger : MonoBehaviour
 {
     Text message;
-    bool triggerable;
+    public bool triggerable;
+    public int noise_level = 5;
+    public bool isInteracting;
+
     void Start() {
         message = GameObject.Find("msg_interact").GetComponent<Text>(); 
     }
@@ -21,12 +24,17 @@ public class InteractOnTrigger : MonoBehaviour
         message.enabled = false;
         triggerable = false;
     }
-
     void Update() {
         if (triggerable) {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Interacting");
+                isInteracting = true;
+                message.enabled = false;
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                isInteracting = false;
+                message.enabled = true;
             }
         }
     }
