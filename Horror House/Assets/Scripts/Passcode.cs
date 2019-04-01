@@ -42,5 +42,6 @@ public class Passcode : MonoBehaviour
         GameObject.Find("Safe").GetComponent<InteractOnTrigger>().isInteracting = false;
         GameObject.Find("Safe").GetComponent<InteractOnTrigger>().triggerable = false;
         GameObject.Find("Safe").GetComponent<SphereCollider>().enabled = false;
+        GameObject.Find("Keypad").SetActive(false);
     }
 }

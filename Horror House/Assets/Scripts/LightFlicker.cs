@@ -7,6 +7,7 @@ public class LightFlicker : MonoBehaviour
     // Objects
     public Light spotLight;
     public Light pointLight;
+    public Light bulb;
 
     // Timers
     public int time_dark = 200;
@@ -49,12 +50,14 @@ public class LightFlicker : MonoBehaviour
         if (dark) {
             spotLight.enabled = true;
             pointLight.enabled = true;
+            bulb.enabled = true;
             dark = false;
             currTimer = time_light;
         }
         else {
             spotLight.enabled = false;
             pointLight.enabled = false;
+            bulb.enabled = false;
             dark = true;
             currTimer = time_dark;
         }
@@ -64,11 +67,13 @@ public class LightFlicker : MonoBehaviour
         pause = true;
         spotLight.enabled = false;
         pointLight.enabled = false;
+        bulb.enabled = false;
         flicker_delay_priv--;
             
         if (flicker_delay_priv <= 0) {
             spotLight.enabled = true;
             pointLight.enabled = true;
+            bulb.enabled = true;
             flicker_count_priv--;
             flicker_delay_priv = flicker_delay;
         }
