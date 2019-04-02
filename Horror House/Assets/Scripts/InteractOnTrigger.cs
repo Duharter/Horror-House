@@ -9,9 +9,11 @@ public class InteractOnTrigger : MonoBehaviour
     public bool triggerable;
     public int noise_level = 5;
     public bool isInteracting;
+    SphereCollider collider;
 
     void Start() {
         message = GameObject.Find("msg_interact").GetComponent<Text>(); 
+        collider = GetComponent<SphereCollider>();
     }
     void OnTriggerEnter (Collider col) {
         if (col.gameObject.name == "Player")
@@ -23,6 +25,7 @@ public class InteractOnTrigger : MonoBehaviour
     void OnTriggerExit() {
         message.enabled = false;
         triggerable = false;
+        isInteracting = false;
     }
     void Update() {
         if (triggerable) {
@@ -37,5 +40,10 @@ public class InteractOnTrigger : MonoBehaviour
                 message.enabled = true;
             }
         }
+    }
+    public void Disable() {
+        isInteracting = false;
+        triggerable = false;
+        collider.enabled = false;
     }
 }

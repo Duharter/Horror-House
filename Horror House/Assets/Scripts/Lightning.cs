@@ -6,7 +6,7 @@ public class Lightning : MonoBehaviour
 {
     Light source;
     float startingIntensity;
-    int timeInterval = 500;
+    public int timeInterval = 1000;
     public int currTimer;
     void Start() {
         currTimer = timeInterval;
@@ -17,6 +17,7 @@ public class Lightning : MonoBehaviour
     void Update() {
         currTimer--;
         if (currTimer <= 0) {
+            if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
             source.enabled = true;
             source.intensity -= 0.5f;
         }

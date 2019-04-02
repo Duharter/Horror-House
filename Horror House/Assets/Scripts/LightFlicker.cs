@@ -73,6 +73,7 @@ public class LightFlicker : MonoBehaviour
         if (flicker_delay_priv <= 0) {
             spotLight.enabled = true;
             pointLight.enabled = true;
+            if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
             bulb.enabled = true;
             flicker_count_priv--;
             flicker_delay_priv = flicker_delay;

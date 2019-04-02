@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Passcode : MonoBehaviour
 {
+    InteractOnTrigger puzzle;
     string passcode = "45545";
     Passcode_input input;
     int currKey;
@@ -39,9 +40,12 @@ public class Passcode : MonoBehaviour
         }
     }
     void Terminate() {
-        GameObject.Find("Safe").GetComponent<InteractOnTrigger>().isInteracting = false;
-        GameObject.Find("Safe").GetComponent<InteractOnTrigger>().triggerable = false;
-        GameObject.Find("Safe").GetComponent<SphereCollider>().enabled = false;
+        GameObject.Find("Safe").GetComponent<InteractOnTrigger>().Disable();
+        GameObject.Find("Obj3").GetComponent<Text>().text = "[X] Find the key";
+        GameObject.Find("escape").GetComponent<Text>().enabled = true;
+        GameObject.Find("escape").GetComponent<AudioSource>().Play();
+        GameObject.Find("Exit").GetComponent<SphereCollider>().enabled = true;
+        GameObject.Find("Exit").GetComponent<WinGame>().Unlock();
         GameObject.Find("Keypad").SetActive(false);
     }
 }
