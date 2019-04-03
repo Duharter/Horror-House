@@ -8,24 +8,33 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public GameObject player;
     public NavMeshAgent agent;
+    public int followDist;
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, this.transform.position) < 8)
+        if (Vector3.Distance(player.transform.position, this.transform.position) < followDist)
         {
-            agent.SetDestination(player.transform.position);
+            //Debug.Log("Text: " + Vector3.Distance(player.transform.position, this.transform.position));
+            //GameObject ground = GameObject.FindWithTag("Ground");
+            //Vector3 vector3 = new Vector3(player.transform.position.x, ground.transform.position.y, player.transform.position.z);
+            //agent.SetDestination(player.transform.position);
+
+            RaycastHit hit;
+            Physics.Raycast(player.transform.position, Vector3.down, out hit);
+            agent.SetDestination(hit.point);
         }
 
+        /*
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition); 
             RaycastHit hit;
 
             if(Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
             }
-        }
+        }*/
     }
 }
