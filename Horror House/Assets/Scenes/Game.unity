@@ -1516,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd76db1e85e18e43ab20219326a706a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeInterval: 1800
+  timeInterval: 1250
   currTimer: 0
 --- !u!82 &271299224
 AudioSource:
@@ -7498,7 +7498,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
-  m_Intensity: 1
+  m_Intensity: 5
   m_Range: 20
   m_SpotAngle: 60
   m_CookieSize: 10
