@@ -41,7 +41,6 @@ public class MonsterController : MonoBehaviour
 
     public void ChasePlayer()
     {
-        Debug.Log("chasing");
         RaycastHit hit;
         Physics.Raycast(player.transform.position, Vector3.down, out hit);
         agent.SetDestination(hit.point);
