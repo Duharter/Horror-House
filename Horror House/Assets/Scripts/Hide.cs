@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class Hide : MonoBehaviour
 {
-    Camera mainCam;
-    Camera hideCam;
-
-    public int rayLength = 10;
-
+    // Start is called before the first frame update
     void Start()
     {
-        mainCam.enabled = true;
-        hideCam.enabled = false;
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        RaycastHit hit;
-       // int fwd = transform.TransformDirection(Vector3.forward);
+        
     }
 }
-
