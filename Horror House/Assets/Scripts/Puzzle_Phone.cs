@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Puzzle_Phone : MonoBehaviour
 {
+    public GameObject monster;
     InteractOnTrigger puzzle;
     AudioSource source;
     public AudioClip pickup;
@@ -18,6 +19,8 @@ public class Puzzle_Phone : MonoBehaviour
     bool play_once_2 = true;
     bool play_once_3 = true;
     bool play_once_4 = true;
+    bool play_once_5 = true;
+    bool play_once_6 = true;
     public int countdown = 50;
     bool begin_cd = false;
     
@@ -57,6 +60,7 @@ public class Puzzle_Phone : MonoBehaviour
             if (countdown <= 0 && !source.isPlaying && !play_once_2) {
                 source.PlayOneShot(aftersound);
                 play_once_3 = false;
+                countdown = 100;
             }
         }
         if (!source.isPlaying && !play_once_3 && play_once_4) {
@@ -66,9 +70,24 @@ public class Puzzle_Phone : MonoBehaviour
             // Enable stuff
             GameObject.Find("Outside Light").GetComponent<Lightning>().enabled = true;
             GameObject.Find("Bookshelf").GetComponent<SphereCollider>().enabled = true;
-            GameObject.Find("Bookshelf").GetComponent<InteractOnTrigger>().enabled = true;
-            GameObject.Find("Bookshelf").GetComponent<Puzzle_paper>().enabled = true;
+            GameObject.Find("trashbag").GetComponent<SphereCollider>().enabled = true;
+            GameObject.Find("barrel").GetComponent<SphereCollider>().enabled = true;
+            GameObject.Find("Wardrobe").GetComponent<SphereCollider>().enabled = true;
             play_once_4 = false;
+            begin_cd = true;
+        }
+        // Play door squeak
+        if (begin_cd && play_once_5 && !source.isPlaying && !play_once_4) {
+            countdown--;
+            if (countdown <= 0) {
+                GameObject.Find("Door").GetComponent<AudioSource>().Play();
+                play_once_5 = false;
+            }
+        }
+        // Spawn demogorgon
+        if (play_once_6 && !GameObject.Find("Door").GetComponent<AudioSource>().isPlaying && !play_once_5) {
+            monster.SetActive(true);
+            play_once_6 = false;
         }
     }   
 }
