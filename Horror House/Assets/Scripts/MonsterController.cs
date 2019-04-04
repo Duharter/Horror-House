@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerController : MonoBehaviour
+public class MonsterController : MonoBehaviour
 {
     public Camera cam;
     public GameObject player;
