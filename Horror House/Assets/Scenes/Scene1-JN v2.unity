@@ -8154,6 +8154,7 @@ MonoBehaviour:
   player: {fileID: 534669902}
   agent: {fileID: 1579884782}
   followDist: 5
+  growl: {fileID: 8300000, guid: ecc283588f6dbcb4cbf75081ab7bf1b8, type: 3}
 --- !u!82 &1579884784
 AudioSource:
   m_ObjectHideFlags: 0

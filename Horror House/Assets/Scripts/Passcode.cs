@@ -47,5 +47,11 @@ public class Passcode : MonoBehaviour
         GameObject.Find("Exit").GetComponent<SphereCollider>().enabled = true;
         GameObject.Find("Exit").GetComponent<WinGame>().Unlock();
         GameObject.Find("Keypad").SetActive(false);
+
+        // Chase player after he/she interacts
+        GameObject.Find("demogorgon").GetComponent<MonsterController>().ChasePlayer();
+        GameObject.Find("demogorgon").GetComponent<AudioSource>().Pause();
+        GameObject.Find("demogorgon").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("demogorgon").GetComponent<MonsterController>().growl);
+        GameObject.Find("demogorgon").GetComponent<AudioSource>().Play();
     }
 }

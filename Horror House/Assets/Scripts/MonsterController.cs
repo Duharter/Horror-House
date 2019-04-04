@@ -9,7 +9,8 @@ public class MonsterController : MonoBehaviour
     public GameObject player;
     public NavMeshAgent agent;
     public int followDist;
-
+    public AudioClip growl;
+        
     // Update is called once per frame
     void Update()
     {
@@ -36,5 +37,12 @@ public class MonsterController : MonoBehaviour
                 agent.SetDestination(hit.point);
             }
         }*/
+    }
+
+    public void ChasePlayer()
+    {
+        RaycastHit hit;
+        Physics.Raycast(player.transform.position, Vector3.down, out hit);
+        agent.SetDestination(hit.point);
     }
 }
