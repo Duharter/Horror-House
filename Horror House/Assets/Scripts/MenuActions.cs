@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuActions : MonoBehaviour
 {
     public void StartGame() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Scenes/Game");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -14,6 +14,9 @@ public class MenuActions : MonoBehaviour
         SceneManager.LoadScene(0);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+    public void NextScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame() {
         Application.Quit();
