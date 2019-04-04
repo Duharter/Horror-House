@@ -33,6 +33,10 @@ public class InteractOnTrigger : MonoBehaviour
             {
                 isInteracting = true;
                 message.enabled = false;
+                GameObject.Find("demogorgon").GetComponent<MonsterController>().ChasePlayer();
+                GameObject.Find("demogorgon").GetComponent<AudioSource>().Pause();
+                GameObject.Find("demogorgon").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("demogorgon").GetComponent<MonsterController>().growl);
+                GameObject.Find("demogorgon").GetComponent<AudioSource>().Play();
             }
             if (Input.GetKeyDown(KeyCode.B))
             {

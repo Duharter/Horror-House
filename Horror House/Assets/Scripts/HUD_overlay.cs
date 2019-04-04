@@ -15,6 +15,8 @@ public class HUD_overlay : MonoBehaviour
     bool play_once = true;
 
     void Start() {
+        //Cursor.visible = false;
+        GameObject.Find("Player").GetComponent<Camera_Control>().enabled = true;
         source = GetComponent<AudioSource>();
         currTimer = timer;
         currTimer = obj_ctr;
