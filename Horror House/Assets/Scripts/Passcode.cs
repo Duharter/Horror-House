@@ -50,8 +50,5 @@ public class Passcode : MonoBehaviour
 
         // Chase player after he/she interacts
         GameObject.Find("demogorgon").GetComponent<MonsterController>().ChasePlayer();
-        GameObject.Find("demogorgon").GetComponent<AudioSource>().Pause();
-        GameObject.Find("demogorgon").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("demogorgon").GetComponent<MonsterController>().growl);
-        GameObject.Find("demogorgon").GetComponent<AudioSource>().Play();
     }
 }

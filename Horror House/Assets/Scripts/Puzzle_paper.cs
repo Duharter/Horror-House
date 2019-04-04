@@ -18,12 +18,6 @@ public class Puzzle_paper : MonoBehaviour
             puzzle.Disable();
             GameObject.Find("Obj2").GetComponent<Text>().text = "[X] Search for the code";
             loadNextObj = true;
-
-            // Chase player after he/she interacts
-            GameObject.Find("demogorgon").GetComponent<MonsterController>().ChasePlayer();
-            GameObject.Find("demogorgon").GetComponent<AudioSource>().Pause();
-            GameObject.Find("demogorgon").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("demogorgon").GetComponent<MonsterController>().growl);
-            GameObject.Find("demogorgon").GetComponent<AudioSource>().Play();
         }
         if (loadNextObj) {
             obj_cd--;

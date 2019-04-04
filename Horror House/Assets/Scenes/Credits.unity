@@ -319,7 +319,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Ryan - [Insert role here]
+  m_Text: Ryan Fernandez - Monster AI Scripter
 --- !u!222 &208103461
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1293,7 +1293,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Mical - [Insert role here]
+  m_Text: Mical Estifanos - [Insert role here]
 --- !u!222 &2066271109
 CanvasRenderer:
   m_ObjectHideFlags: 0
