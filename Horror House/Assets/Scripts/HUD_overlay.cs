@@ -40,7 +40,6 @@ public class HUD_overlay : MonoBehaviour
     }
     public void PlayObjSFX() {
         source.PlayOneShot(objective);
-
     }
 
     
