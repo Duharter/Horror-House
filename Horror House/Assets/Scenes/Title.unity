@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135463675}
+  - component: {fileID: 135463676}
   m_Layer: 0
   m_Name: DifficultyData
   m_TagString: Untagged
