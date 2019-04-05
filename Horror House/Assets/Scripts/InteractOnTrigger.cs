@@ -28,7 +28,7 @@ public class InteractOnTrigger : MonoBehaviour
         isInteracting = false;
     }
     void Update() {
-        if (triggerable) {
+        if (triggerable && !Pause.paused) {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isInteracting = true;
@@ -40,6 +40,7 @@ public class InteractOnTrigger : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.B))
             {
+                GameObject.Find("Safe").GetComponent<Passcode_input>().Reset();
                 isInteracting = false;
                 message.enabled = true;
             }

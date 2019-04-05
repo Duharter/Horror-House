@@ -28,7 +28,7 @@ public class Puzzle_Keypad : MonoBehaviour
             yCamera.enabled = false;
             GameObject.Find("Player").GetComponent<Player_movement>().enabled = false;
         }
-        else {
+        else if (!puzzle.isInteracting && !Pause.paused){
             keypad.enabled = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;

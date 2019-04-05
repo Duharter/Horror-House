@@ -35,7 +35,8 @@ public class LightFlicker : MonoBehaviour
     }
 
     void Update() {
-        currTimer--;
+        if (!Pause.paused)  
+            currTimer--;
         if (currTimer <= 0) {
             Flicker();
             if (!pause) {
@@ -68,7 +69,8 @@ public class LightFlicker : MonoBehaviour
         spotLight.enabled = false;
         pointLight.enabled = false;
         bulb.enabled = false;
-        flicker_delay_priv--;
+        if (!Pause.paused) 
+            flicker_delay_priv--;
             
         if (flicker_delay_priv <= 0) {
             spotLight.enabled = true;

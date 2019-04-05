@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    bool paused = false;
+    static public bool paused = false;
     GameObject player;
     GameObject camera;
+    GameObject monster;
+    public GameObject canvas;
     AudioSource[] audio;
     void Start() {
         player = GameObject.Find("Player");
         camera = GameObject.Find("Main Camera");
+        monster = GameObject.Find("demogorgon");
         audio = GameObject.FindSceneObjectsOfType(typeof(AudioSource)) as AudioSource[];
     }
     void Update()
@@ -22,31 +25,33 @@ public class Pause : MonoBehaviour
                 player.GetComponent<Camera_Control>().enabled = false;
                 player.GetComponent<Player_movement>().enabled = false;
                 camera.GetComponent<Camera_Control>().enabled = false;
-                // Disable monster
-                // Disable timer
-                // Disable light
-                // Disable thunder
-                // Disable objectives
+                monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+                monster.GetComponent<MonsterController>().enabled = false;
+                
                 foreach(AudioSource audioSource in audio) {
                     audioSource.Pause();
                 }
 
+                // Enable dark screen
+                canvas.SetActive(true);
                 
                 paused = true;
-                // TODO: show pause canvas
             }
             else {
-                paused = false;player.GetComponent<Camera_Control>().enabled = true;
+                player.GetComponent<Camera_Control>().enabled = true;
                 player.GetComponent<Player_movement>().enabled = true;
                 camera.GetComponent<Camera_Control>().enabled = true;
-                // Enable monster
-                // Enable timer
-                // Enable light
-                // Enable thunder
-                // Enable objectives
+                monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+                monster.GetComponent<MonsterController>().enabled = true;
+
                 foreach(AudioSource audioSource in audio) {
                     audioSource.UnPause();
                 }
+
+                // Disable dark screen
+                canvas.SetActive(false);
+
+                paused = false;
             }
         }
     }

@@ -15,7 +15,8 @@ public class Lightning : MonoBehaviour
         startingIntensity = source.intensity;
     }
     void Update() {
-        currTimer--;
+        if (!Pause.paused) 
+            currTimer--;
         if (currTimer <= 0) {
             if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
             source.enabled = true;
