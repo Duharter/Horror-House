@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8773585, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -450,8 +450,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: This game contains loud noises and has a low light setting. Although tempting,
-    avoid straining your eyes.
+  m_Text: This game contains loud noises and has a low light setting. Do not strain
+    your eyes.
 --- !u!222 &877095795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 1355108070}
   - component: {fileID: 1355108069}
   - component: {fileID: 1355108073}
+  - component: {fileID: 1355108074}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -649,9 +650,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea993fd003824544bb47ec2e9d5eef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1355108074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355108068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9e6fbc9ce39f344bb57d14a5940b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 100
 --- !u!1 &1482280135
 GameObject:
   m_ObjectHideFlags: 0

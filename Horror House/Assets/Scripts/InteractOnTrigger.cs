@@ -7,7 +7,6 @@ public class InteractOnTrigger : MonoBehaviour
 {
     Text message;
     public bool triggerable;
-    public int noise_level = 5;
     public bool isInteracting;
     SphereCollider collider;
 

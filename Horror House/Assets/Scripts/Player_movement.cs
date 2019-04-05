@@ -28,6 +28,9 @@ public class Player_movement : MonoBehaviour {
         movement = transform.TransformDirection(movement);
         _charCont.Move(movement);
 
-		
+		if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameObject.Find("Bookshelf").GetComponent<Puzzle_Recorder>().PlaySequence();
+        }
 	}
 }

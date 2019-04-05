@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Passcode : MonoBehaviour
+public class Puzzle_Keypad_Press : MonoBehaviour
 {
     InteractOnTrigger puzzle;
-    string passcode = "45545";
+    string passcode;
     Passcode_input input;
     int currKey;
     Text keyvalue;
@@ -21,8 +21,9 @@ public class Passcode : MonoBehaviour
 
     public void CheckPress() {
         if (!input.GetDone()) {
-            if (keyvalue.text[0] == passcode[currKey]) {
-                if (currKey == passcode.Length - 1) {
+            Debug.Log("Entered: " + keyvalue.text[0] + " correct: " + Puzzle_Passcode.passcode[currKey]);
+            if (keyvalue.text[0] == Puzzle_Passcode.passcode[currKey]) {
+                if (currKey == Puzzle_Passcode.passcode.Length - 1) {
                     this.gameObject.GetComponent<AudioSource>().enabled = false;
                     GameObject.Find("Safe").GetComponent<AudioSource>().clip =  GameObject.Find("Safe").GetComponent<Passcode_input>().correct;
                     GameObject.Find("Safe").GetComponent<AudioSource>().Play();
