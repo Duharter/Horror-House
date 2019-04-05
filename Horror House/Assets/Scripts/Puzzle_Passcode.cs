@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Puzzle_Passcode : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class Puzzle_Passcode : MonoBehaviour
     void Start()
     {
         // Generate random passcode
-        int pass = Random.Range(1111,9999);
+        int pass = Random.Range(11111111,99999999);
+        
         string tmp_passcode = pass.ToString();
         passcode = "";
         for (int i = 0; i < tmp_passcode.Length; i++) {
@@ -18,7 +20,7 @@ public class Puzzle_Passcode : MonoBehaviour
             else
                 passcode += tmp_passcode[i];
         }
-        Debug.Log("pass: " + passcode);
-        
+        GameObject.Find("Code").GetComponent<Text>().text = passcode;
+        Debug.Log(passcode);
     }
 }

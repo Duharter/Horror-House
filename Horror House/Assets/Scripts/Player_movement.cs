@@ -30,7 +30,7 @@ public class Player_movement : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.R))
         {
-            GameObject.Find("Bookshelf").GetComponent<Puzzle_Recorder>().PlaySequence();
+            //GameObject.Find("Bookshelf").GetComponent<Puzzle_Recorder>().PlaySequence();
         }
 	}
 }

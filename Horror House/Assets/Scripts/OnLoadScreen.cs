@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class OnLoadScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool HideCursor = false;
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+    void Update() {
+        if (HideCursor) {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

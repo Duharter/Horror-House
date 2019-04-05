@@ -21,7 +21,6 @@ public class Puzzle_Keypad_Press : MonoBehaviour
 
     public void CheckPress() {
         if (!input.GetDone()) {
-            Debug.Log("Entered: " + keyvalue.text[0] + " correct: " + Puzzle_Passcode.passcode[currKey]);
             if (keyvalue.text[0] == Puzzle_Passcode.passcode[currKey]) {
                 if (currKey == Puzzle_Passcode.passcode.Length - 1) {
                     this.gameObject.GetComponent<AudioSource>().enabled = false;

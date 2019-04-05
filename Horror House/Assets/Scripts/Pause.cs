@@ -10,11 +10,12 @@ public class Pause : MonoBehaviour
     public GameObject monster;
     public GameObject canvas;
     AudioSource[] audio;
+    float monsterSpeed;
     void Start() {
         player = GameObject.Find("Player");
         camera = GameObject.Find("Main Camera");
-        //monster = GameObject.Find("demogorgon");
         audio = GameObject.FindSceneObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        monsterSpeed = monster.GetComponent<UnityEngine.AI.NavMeshAgent>().speed;
     }
     void Update()
     {
@@ -26,8 +27,9 @@ public class Pause : MonoBehaviour
                 player.GetComponent<Player_movement>().enabled = false;
                 camera.GetComponent<Camera_Control>().enabled = false;
                 if (monster.activeInHierarchy) {
-                    monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-                    monster.GetComponent<MonsterController>().enabled = false;
+                    monster.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
+                    //monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+                    //monster.GetComponent<MonsterController>().enabled = false;
                 }
                 foreach(AudioSource audioSource in audio) {
                     audioSource.Pause();
@@ -43,8 +45,9 @@ public class Pause : MonoBehaviour
                 player.GetComponent<Player_movement>().enabled = true;
                 camera.GetComponent<Camera_Control>().enabled = true;
                 if (monster.activeInHierarchy) {
-                    monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-                    monster.GetComponent<MonsterController>().enabled = true;
+                    monster.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = monsterSpeed;
+                    //monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+                    //monster.GetComponent<MonsterController>().enabled = true;
                 }
                 foreach(AudioSource audioSource in audio) {
                     audioSource.UnPause();
