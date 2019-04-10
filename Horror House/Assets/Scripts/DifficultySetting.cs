@@ -12,6 +12,10 @@ public class DifficultySetting : MonoBehaviour
     }
 
     void Update() {
+		if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
    

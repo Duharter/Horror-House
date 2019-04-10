@@ -22,7 +22,7 @@ public class Puzzle_paper : MonoBehaviour
         if (loadNextObj) {
             obj_cd--;
             if (obj_cd <= 0 && play_once) {
-                GameObject.Find("Code").GetComponent<Text>().enabled = true;
+                GameObject.Find("first").GetComponent<Text>().enabled = true;
                 GameObject.Find("HUD").GetComponent<HUD_overlay>().PlayObjSFX();
                 GameObject.Find("Obj3").GetComponent<Text>().enabled = true;
                 GameObject.Find("Safe").GetComponent<Puzzle_Keypad>().enabled = true;
