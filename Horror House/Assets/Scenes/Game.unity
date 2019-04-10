@@ -1489,7 +1489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271299220}
   m_LocalRotation: {x: 0.6889336, y: -0.10645779, z: 0.70759153, w: 0.11554878}
-  m_LocalPosition: {x: -72.09, y: 103.47, z: 20.64}
+  m_LocalPosition: {x: -72.09, y: 98.01, z: 14.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4134,7 +4134,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 619871c31b967724ab695df844dc5b10, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4306,7 +4306,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'ESCAPE!
+  m_Text: 'Get to the stairs!
 
 '
 --- !u!222 &765816612
@@ -10956,7 +10956,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 675b98664cdec7a46a4ee7bd52a96ce5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
