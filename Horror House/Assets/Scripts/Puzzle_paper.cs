@@ -26,6 +26,7 @@ public class Puzzle_paper : MonoBehaviour
                 GameObject.Find("HUD").GetComponent<HUD_overlay>().PlayObjSFX();
                 GameObject.Find("Obj3").GetComponent<Text>().enabled = true;
                 GameObject.Find("Safe").GetComponent<Puzzle_Keypad>().enabled = true;
+                GameObject.Find("Wardrobe").GetComponent<SphereCollider>().enabled = true;
                 obj_cd = 0;
                 play_once = false;
             }

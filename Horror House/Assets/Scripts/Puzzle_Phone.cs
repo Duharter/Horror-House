@@ -87,7 +87,6 @@ public class Puzzle_Phone : MonoBehaviour
                 GameObject.Find("Bookshelf").GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find("trashbag").GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find("barrel").GetComponent<SphereCollider>().enabled = true;
-                GameObject.Find("Wardrobe").GetComponent<SphereCollider>().enabled = true;
                 play_once_6 = false;
             }
         }
