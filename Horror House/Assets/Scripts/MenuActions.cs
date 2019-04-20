@@ -21,4 +21,7 @@ public class MenuActions : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
+    public void TrainingScene() {
+        SceneManager.LoadScene("Scenes/Training Message");
+    }
 }

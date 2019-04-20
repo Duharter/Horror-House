@@ -16,7 +16,7 @@ public class Puzzle_paper : MonoBehaviour
     void Update() {
         if (puzzle.isInteracting) {
             puzzle.Disable();
-            GameObject.Find("Obj2").GetComponent<Text>().text = "[X] Search for the code";
+            GameObject.Find("Obj2").GetComponent<Text>().text = "[X] Get the 1st code from the bookshelf";
             loadNextObj = true;
         }
         if (loadNextObj) {

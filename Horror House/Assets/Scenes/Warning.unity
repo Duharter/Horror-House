@@ -451,7 +451,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: This game contains loud noises and has a low light setting. Do not strain
-    your eyes.
+    your eyes. Do not panic! Being calm is the key to survival.
 --- !u!222 &877095795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9e6fbc9ce39f344bb57d14a5940b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hide: 1
+  HideCursor: 0
 --- !u!1 &1482280135
 GameObject:
   m_ObjectHideFlags: 0

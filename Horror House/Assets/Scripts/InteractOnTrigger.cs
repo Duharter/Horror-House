@@ -28,15 +28,15 @@ public class InteractOnTrigger : MonoBehaviour
     }
     void Update() {
         if (triggerable && !Pause.paused) {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Keypad0))
             {
                 isInteracting = true;
                 message.enabled = false;
+                gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
                 GameObject.Find("demogorgon").GetComponent<MonsterController>().ChasePlayer();
                 GameObject.Find("demogorgon").GetComponent<AudioSource>().Pause();
                 GameObject.Find("demogorgon").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("demogorgon").GetComponent<MonsterController>().growl);
                 GameObject.Find("demogorgon").GetComponent<AudioSource>().Play();
-                gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
             }
             if (Input.GetKeyDown(KeyCode.B))
             {

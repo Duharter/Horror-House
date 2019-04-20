@@ -30,6 +30,13 @@ public class Puzzle_Phone : MonoBehaviour
     }
     void Update() {
         if (!Pause.paused) {
+            // Mute ringing
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                if (source.mute) source.mute = false;
+                else source.mute = true;
+            }
+
             // Starting game
             phone_cd--;
             if (phone_cd <= 0 && play_once_0) {
@@ -87,6 +94,7 @@ public class Puzzle_Phone : MonoBehaviour
                 GameObject.Find("Bookshelf").GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find("trashbag").GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find("barrel").GetComponent<SphereCollider>().enabled = true;
+                GameObject.Find("CinderBlock").GetComponent<SphereCollider>().enabled = true;
                 play_once_6 = false;
             }
         }
