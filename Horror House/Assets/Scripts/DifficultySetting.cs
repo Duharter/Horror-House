@@ -15,9 +15,9 @@ public class DifficultySetting : MonoBehaviour
     void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(0);
         }
     }
 
