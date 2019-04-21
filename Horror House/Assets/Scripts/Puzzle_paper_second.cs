@@ -16,7 +16,7 @@ public class Puzzle_paper_second : MonoBehaviour
     void Update() {
         if (puzzle.isInteracting) {
             puzzle.Disable();
-            GameObject.Find("Obj3").GetComponent<Text>().text = "[X] Find the second half of the code";
+            GameObject.Find("Obj3").GetComponent<Text>().text = "[X] Get the 2nd code from the wardrobe";
             loadNextObj = true;
         }
         if (loadNextObj) {

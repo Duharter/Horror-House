@@ -41,7 +41,7 @@ public class Puzzle_Keypad_Press : MonoBehaviour
     }
     void Terminate() {
         GameObject.Find("Safe").GetComponent<InteractOnTrigger>().Disable();
-        GameObject.Find("Obj4").GetComponent<Text>().text = "[X] Find the key";
+        GameObject.Find("Obj4").GetComponent<Text>().text = "[X] Enter the code in the safe";
         GameObject.Find("escape").GetComponent<Text>().enabled = true;
         GameObject.Find("escape").GetComponent<AudioSource>().Play();
         GameObject.Find("Exit").GetComponent<SphereCollider>().enabled = true;
